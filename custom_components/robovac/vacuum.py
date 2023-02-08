@@ -534,6 +534,14 @@ class RoboVacEntity(VacuumEntity):
                 await self.vacuum.async_set({"118": False}, None)
             else:
                 await self.vacuum.async_set({"118": True}, None)
+        elif command == "goLeft":
+            await self.vacuum.async_set({"3": "left"}, None)
+        elif command == "goRight":
+            await self.vacuum.async_set({"3": "right"}, None)
+        elif command == "goForward":
+            await self.vacuum.async_set({"3": "forward"}, None)
+        elif command == "goBackward":
+            await self.vacuum.async_set({"3": "backward"}, None)
         elif command == "roomClean":
             roomIds = params.get("roomIds", [1])
             count = params.get("count", 1)
